@@ -1,17 +1,15 @@
+# menu.py
 import qtawesome as qta
 from PyQt5.QtCore import Qt, pyqtSignal, QSize
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QSizePolicy
 
 class SidebarMenu(QWidget):
-    """
-    Thanh điều hướng bên trái, chỉ chứa các nút menu.
-    """
     menuClicked = pyqtSignal(str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setFixedWidth(260)
-        self.setStyleSheet("background-color: #0d3a66;")  # nền xanh đậm
+        self.setStyleSheet("background-color: #0d3a66;")
         self._build_ui()
 
     def _build_ui(self):
@@ -19,16 +17,14 @@ class SidebarMenu(QWidget):
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(15)
 
-        # Các mục menu: (key, qtawesome icon, label)
         menu_items = [
-            ('overview', 'fa.home', 'Trang chủ'),
-            ('courses',  'fa.book', 'Quản lý môn học'),
-            ('classes',  'fa.users', 'Quản lý lớp học'),
+            ('overview', 'fa.home',             'Trang chủ'),
+            ('courses',  'fa.book',             'Quản lý môn học'),
+            ('classes',  'fa.users',            'Quản lý lớp học'),
             ('suggest',  'fa.calendar-check-o', 'Gợi ý thời khóa biểu'),
-            ('plan',     'fa.clipboard', 'Lập kế hoạch ôn tập'),
-            ('games',    'fa.gamepad', 'Trò chơi học tập'),
-            ('reminder', 'fa.bell', 'Nhắc nhở'),
-            ('chat',     'fa.envelope', 'Chat nhóm'),
+            ('games',    'fa.gamepad',          'Trò chơi học tập'),
+            ('study',    'fa.clipboard',        'Lập kế hoạch ôn tập'),
+            ('chat',     'fa.envelope',         'Chat nhóm'),
         ]
 
         for key, icon_name, text in menu_items:
